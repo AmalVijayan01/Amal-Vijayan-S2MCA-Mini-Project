@@ -1,9 +1,10 @@
 <?php
-  include 'connect.php';
-  session_start();
+include 'connect.php';
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,37 +13,34 @@
   <title>homelifoodi admin login</title>
 </head>
 <?php
-  if(isset($_POST['submit']))
-  {
-    $uname = $_POST['username'];
-    $pass = $_POST['password'];
+if (isset($_POST['submit'])) {
+  $uname = $_POST['username'];
+  $pass = $_POST['password'];
 
-    $sql = "SELECT * FROM admin_users where username='$uname' and password='$pass'";
-    $result = mysqli_query($con,$sql);
-    $count = mysqli_num_rows($result);
+  $sql = "SELECT * FROM admin_users where username='$uname' and password='$pass'";
+  $result = mysqli_query($con, $sql);
+  $count = mysqli_num_rows($result);
 
-    while ($row = mysqli_fetch_array($result))
-    {
-      $adminname = $row['username'];
-    }
-    if ($count > 0)
-    {
-      $_SESSION['username'] = $adminname;
-      header("location:index.php");
-    }
-    else{
-      ?>
-      <script>
-        alert("Invalid username or password");
-      </script>
-      <?php
-    }
-    mysqli_close($con);
+  while ($row = mysqli_fetch_array($result)) {
+    $adminname = $row['username'];
   }
+  if ($count > 0) {
+    $_SESSION['username'] = $adminname;
+    header("location:index.php");
+  } else {
 ?>
+    <script>
+      alert("Invalid username or password");
+    </script>
+<?php
+  }
+  mysqli_close($con);
+}
+?>
+
 <body>
   <div class="login-wrapper">
-    <form  method="POST" action="#" class="form">
+    <form method="POST" action="#" class="form">
       <img src="img/avatar.png" alt="">
       <h2>Welcome Admin</h2>
       <div class="input-group">
@@ -50,7 +48,7 @@
         <label for="loginUser">User Name</label>
       </div>
       <div class="input-group">
-        <input type="password" name="password"  required autocomplete="off">
+        <input type="password" name="password" required autocomplete="off">
         <label for="loginPassword">Password</label>
       </div>
       <input type="submit" name="submit" value="Login" class="submit-btn">
@@ -70,4 +68,5 @@
     </div>
   </div>
 </body>
+
 </html>

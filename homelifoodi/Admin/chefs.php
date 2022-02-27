@@ -1,8 +1,9 @@
 <?php
-  include 'connect.php';
+include 'connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,82 +13,94 @@
   <!-- box icon -->
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
   <style>
-    .fditems{
+    .fditems {
       min-width: 100%;
     }
-    .displayitems{
+
+    .displayitems {
       align-items: center;
       padding-left: 30px;
       padding-right: 30px;
-      padding-top:50px;
-      padding-bottom:50px;
-      border-radius:10px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      border-radius: 10px;
       min-width: 100%;
-      
+
     }
-    h1{
+
+    h1 {
       text-align: center;
       margin-top: 50px;
       margin-bottom: 30px;
     }
-    .distbl{
+
+    .distbl {
       padding-top: 20px;
       padding-bottom: 20px;
       align-content: center;
       border-radius: 10px;
       min-width: 100%;
     }
-    table{
+
+    table {
       background-color: white;
       border-collapse: collapse;
       border-color: #fff;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
       border-radius: 10px;
       margin: auto;
       min-width: 100%;
     }
-    th,td{
+
+    th,
+    td {
       border: 1px solid #f2f2f2;
       padding: 8px 30px;
       text-align: center;
-      color:grey;
+      color: grey;
       min-width: 100%;
     }
-    th{
+
+    th {
       text-transform: uppercase;
       font: weight 500px;
       min-width: 100%;
     }
-    td{
+
+    td {
       font-size: 13px;
       min-width: 100%;
     }
-    td a{
-      padding:5px 7px 5px 4px;
+
+    td a {
+      padding: 5px 7px 5px 4px;
       border-radius: 6px;
     }
-    td img{
-      width:150px;
-      height:150px;
+
+    td img {
+      width: 150px;
+      height: 150px;
       border-radius: 6px;
     }
-    .btna{
+
+    .btna {
       background-color: greenyellow;
       padding: 3px 7px 3px 7px;
       border-radius: 10px;
       border: none;
       font-weight: bold;
     }
-    .btnb{
-      background-color:red;
+
+    .btnb {
+      background-color: red;
       padding: 3px 7px 3px 7px;
       border-radius: 10px;
       border: none;
       font-weight: bold;
     }
-    
   </style>
 </head>
+
 <body>
   <div class="sidebar">
     <div class="logo_details">
@@ -98,8 +111,8 @@
     </div>
     <ul>
       <li>
-        <a href="index.php" >
-        <i class='bx bxs-dashboard' ></i>
+        <a href="index.php">
+          <i class='bx bxs-dashboard'></i>
           <span class="links_name">
             Dashboard
           </span>
@@ -107,7 +120,7 @@
       </li>
       <li>
         <a href="fooditems.php">
-        <i class='bx bx-food-menu' ></i>
+          <i class='bx bx-food-menu'></i>
           <span class="links_name">
             Food items
           </span>
@@ -134,7 +147,7 @@
         </a>
       </li>
       <li>
-        <a href="customers.php" >
+        <a href="customers.php">
           <i class='bx bx-user'></i>
           <span class="links_name">
             Customers
@@ -142,10 +155,10 @@
         </a>
       </li>
 
-      
+
       <li>
         <a href="#" class="active">
-        <i class='bx bx-food-menu' ></i>
+          <i class='bx bx-food-menu'></i>
           <span class="links_name">
             Chefs
           </span>
@@ -154,7 +167,7 @@
 
       <li>
         <a href="profile.php">
-        <i class='bx bxs-user-account' ></i>
+          <i class='bx bxs-user-account'></i>
           <span class="links_name">
             Profile
           </span>
@@ -181,90 +194,88 @@
       </div>
     </div>
     <!-- End Top Bar -->
-  <script>
-    let sidebar = document.querySelector(".sidebar");
-    let closeBtn = document.querySelector("#btn");
+    <script>
+      let sidebar = document.querySelector(".sidebar");
+      let closeBtn = document.querySelector("#btn");
 
-    closeBtn.addEventListener("click", () => {
-      sidebar.classList.toggle("open");
-      // call function
-      changeBtn();
-    });
+      closeBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("open");
+        // call function
+        changeBtn();
+      });
 
-    function changeBtn() {
-      if(sidebar.classList.contains("open")) {
-        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-      } else {
-        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+      function changeBtn() {
+        if (sidebar.classList.contains("open")) {
+          closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+        } else {
+          closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+        }
       }
-    }
-  </script>
-  <div class="fditems">
-    <h1 >List of Customers</h1>
-    <div class="displayitems">
-      <div class="distbl">
-        <table>
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Name</th>
-              <th>Address</th>
-              <th>Email</th>
-              <th>Mobile</th>
-              <th>Status</th>
-              <th>Image</th>
-              <th>Update</th>
-              
-             
-            </tr>
-          </thead>
-          <tbody>
-          <?php
+    </script>
+    <div class="fditems">
+      <h1>List of Customers</h1>
+      <div class="displayitems">
+        <div class="distbl">
+          <table>
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Status</th>
+                <th>Image</th>
+                <th>Update</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              <?php
               $Selectquery = "SELECT tbl_login.*,tbl_chefs.* from tbl_login,tbl_chefs where tbl_login.login_id=tbl_chefs.login_id;";
-              $res=mysqli_query($con,$Selectquery);
-              
-              
+              $res = mysqli_query($con, $Selectquery);
+
+
               // $sqlk = "SELECT * FROM tbl_login";
               // $reslti = mysqli_query($con,$sqlk);
               // $result1 = mysqli_fetch_array($reslti);
 
 
-              while ($result = mysqli_fetch_array($res))
-              {
-                $imageurl="../regimg/".$result['chef_image'];
-                ?>
+              while ($result = mysqli_fetch_array($res)) {
+                $imageurl = "../regimg/" . $result['chef_image'];
+              ?>
                 <tr>
                   <td><?php echo $result['chefs_id']; ?></td>
                   <td><?php echo $result['chef_name']; ?></td>
                   <td><?php echo $result['chef_address']; ?></td>
                   <td><?php echo $result['chef_email']; ?></td>
                   <td><?php echo $result['chef_mobile']; ?></td>
-                  <td><?php 
-                    if($result['status']==0)
-                    {
-                      echo "active";
-                    }
-                    else{
-                      echo "Inactive";
-                    }
-                    ?>
+                  <td><?php
+                      if ($result['status'] == 0) {
+                        echo "active";
+                      } else {
+                        echo "Inactive";
+                      }
+                      ?>
                   </td>
-                  <td><img src= "<?php echo $imageurl ?>"> </td>
-                  
+                  <td><img src="<?php echo $imageurl ?>"> </td>
+
                   <td>
-                  <a href="status.php?id=<?php echo $result['login_id'] ?> ">
-                  <input type="submit" value="Enable" class="btna"></a> 
-                  <a href="status.php?r_id=<?php echo $result['login_id'] ?> ">
-                  <input type="submit" value="Disable" class="btnb"></a>
+                    <a href="status.php?id=<?php echo $result['login_id'] ?> ">
+                      <input type="submit" value="Enable" class="btna"></a>
+                    <a href="status.php?r_id=<?php echo $result['login_id'] ?> ">
+                      <input type="submit" value="Disable" class="btnb"></a>
                   </td>
                 </tr>
-            <?php
+              <?php
               }
-            ?>
+              ?>
             </tbody>
-        </table>
+          </table>
+        </div>
       </div>
     </div>
-  </div>
 </body>
+
 </html>

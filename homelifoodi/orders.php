@@ -104,6 +104,9 @@
         </div>
         </div>
         <!-- End Top Bar -->
+        <!-- Order section starts -->
+        <!-- Order section ends -->
+
         <script>
             let sidebar = document.querySelector(".sidebar");
             let closeBtn = document.querySelector("#btn");

@@ -38,6 +38,7 @@
         if($resd)
         {
             print "<script> alert('Profile updated sucessfully')</script>";
+            echo "<script> location='profile.php' </script>";
         }
     }
 ?>
