@@ -77,14 +77,14 @@
         </a>
       </li>
 
-      <li>
+      <!-- <li>
         <a href="profile.php">
         <i class='bx bxs-user-account' ></i>
           <span class="links_name">
             Profile
           </span>
         </a>
-      </li>
+      </li> -->
       <li class="login">
         <a href="logout.php ">
           <span class="links_name login_out">
@@ -117,7 +117,16 @@
     <div class="card-boxes">
       <div class="box">
         <div class="right_side">
-          <div class="numbers">9.99</div>
+          <div class="numbers">
+          <?php 
+        $Selectqueryyy = "SELECT * FROM orders";
+        $resyy=mysqli_query($con,$Selectqueryyy);
+        $nummm = mysqli_num_rows($resyy);
+        
+        ?>
+        <?php echo $nummm; ?>
+      
+          </div>
           <div class="box_topic">Total Orders</div>
         </div>
         <img src="https://img.icons8.com/fluency/48/000000/shopping-cart-with-money.png"/>

@@ -76,6 +76,7 @@
                 border-radius:0px;
                 box-shadow: 20px;
                 display:grid;
+                box-shadow: 5px 5px;
             }
             .profcard h3{
                 text-align: center;

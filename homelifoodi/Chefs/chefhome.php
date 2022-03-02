@@ -11,7 +11,12 @@
   {
     $reslt['username'];
   }
+  $sqlf = "SELECT chefs_id FROM tbl_chefs WHERE login_id = '" . $_SESSION['login_id'] . "'";
+$resltg = mysqli_query($con, $sqlf);
+$reslth = mysqli_fetch_array($resltg);
+$urn2 = $reslth['chefs_id'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -95,6 +100,30 @@
                 text-align: center;
                 margin: 10px;
             }
+            .recentadded img{
+                width: 300px;
+                height:250px;
+                justify-content: center;
+                align-items: center;
+                margin:  0 10px 0 40px;
+                border-radius:10px;
+            }
+            .dishdetails{
+                text-align: center;
+                margin: 5px;
+            }
+            .neworders img{
+                width: 300px;
+                height:250px;
+                justify-content: center;
+                align-items: center;
+                margin:  0 10px 0 40px;
+                border-radius:10px;
+            }
+            .dishdetails{
+                text-align: center;
+                margin: 5px;
+            }
             .aggregte{
                 width: 30%;
                 height: 380px;
@@ -117,8 +146,24 @@
             .aggritms svg{
                 width:80px;
                 height:80px;
-                align-items: right;
-                justify-content: right;
+                align-items: center;
+                justify-content: center;
+
+            }
+            .aggritms a{
+                text-decoration: none;
+                text-align: center;
+                margin: 15px 30px 20px 50px;
+                background-color: lawngreen;
+                padding: 20px 25px 20px 25px;
+
+            }
+            .aggritms1 a{
+                text-decoration: none;
+                text-align: center;
+                margin: 15px 30px 20px 50px;
+                background-color: lawngreen;
+                padding: 20px 25px 20px 25px;
             }
             .aggritms1{
                 background-color: white;
@@ -135,7 +180,7 @@
             .aggritms1 svg{
                 width:80px;
                 height:80px;
-                align-items:flex-end;
+                align-items:center;
                 justify-content: right;
             } 
         </style>
@@ -232,21 +277,69 @@
                 <h2>Welcome to Homelifoodi</h2>
             </div>
             <div class="allcnts">
-                <div class="neworders">
+            <div class="neworders">
                     <h4>New orders for you</h4>
+                <?php
+                 $resqq = "SELECT * FROM orders,products WHERE orders.chefs_id = '$urn2' AND products.chefs_id = '$urn2' ORDER BY order_id DESC LIMIT 1;";
+                 $resww = mysqli_query($con, $resqq);
+                 if ($resee = mysqli_fetch_array($resww)) {
+                     $resee['del_name'];
+                     $resee['del_addr'];
+                     $resee['order_time'];
+                     $imageurl = "food_images/" . $resee['prdt_image'];
+                     
+                 ?>
+                 <img src="<?php echo $imageurl ?>">
+                 <div class="dishdetails">
+                     <h5><?php echo $resee['del_name']; ?></h5>
+                     <h6><?php echo $resee['del_addr']; ?></h6>
+                     <p><?php echo $resee['order_time']; ?></p>
+                 </div>
+                 <?php }
+                 else{
+                     echo "no items";
+                 }?>
+                
                 </div>
+                
                 <div class="recentadded">
                     <h4>Recent dishes by you</h4>
+                    <?php
+                     $resq = "SELECT * FROM products WHERE chefs_id = '$urn2' ORDER BY prdt_id DESC LIMIT 1";
+                    $resw = mysqli_query($con, $resq);
+                    if ($rese = mysqli_fetch_array($resw)) {
+                        $rese['prdt_name'];
+                        $rese['prdt_price'];
+                        $rese['prdt_description'];
+                        $imageurl = "food_images/" . $rese['prdt_image'];
+                    
+                    ?>
+                    <img src="<?php echo $imageurl ?>">
+                    <div class="dishdetails">
+                        <h5><?php echo $rese['prdt_name']; ?></h5>
+                        <h6><?php echo $rese['prdt_price']; ?></h6>
+                        <p><?php echo $rese['prdt_description']; ?></p>
+                    </div>
+                    <?php }
+                    else{
+                        echo "no items";
+                    }?>
                 </div>
                 <div class="aggregte">
                     <div class="aggritms">
+                        <?php 
+                            $csqlqry = "SELECT COUNT(prdt_id) from products WHERE chefs_id ='$urn2'";
+                            $rescsqlqry = mysqli_query($con,$csqlqry);
+                            $cnt= mysqli_num_rows($rescsqlqry);
+                        ?>
                         <h4>Total dishes</h4>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(249, 5, 5, 1);transform: ;msFilter:;"><path d="M21 15c0-4.625-3.507-8.441-8-8.941V4h-2v2.059c-4.493.5-8 4.316-8 8.941v2h18v-2zM5 15c0-3.859 3.141-7 7-7s7 3.141 7 7H5zm-3 3h20v2H2z"></path></svg>
+                        <a href="myfoods.php">View More</a>
                     </div>
                     <div class="aggritms1">
                         <h4>Total orders </h4>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M21 4H2v2h2.3l3.28 9a3 3 0 0 0 2.82 2H19v-2h-8.6a1 1 0 0 1-.94-.66L9 13h9.28a2 2 0 0 0 1.92-1.45L22 5.27A1 1 0 0 0 21.27 4 .84.84 0 0 0 21 4zm-2.75 7h-10L6.43 6h13.24z"></path><circle cx="10.5" cy="19.5" r="1.5"></circle><circle cx="16.5" cy="19.5" r="1.5"></circle></svg>
- 
+                        <a href="ordersforme.php">View More</a>
                     </div>
                 </div>
             </div>

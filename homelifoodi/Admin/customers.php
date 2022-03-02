@@ -134,14 +134,14 @@
         </a>
       </li>
 
-      <li>
+      <!-- <li>
         <a href="profile.php">
         <i class='bx bxs-user-account' ></i>
           <span class="links_name">
             Profile
           </span>
         </a>
-      </li>
+      </li> -->
       <li class="login">
         <a href="logout.php ">
           <span class="links_name login_out">

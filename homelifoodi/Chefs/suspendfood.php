@@ -4,6 +4,8 @@
     $urn = $_SESSION['login_id'];
     $id = $_GET['id'];
     $rid = $_GET['r_id'];
+    $prid = $_GET['pid'];
+    $prtid = $_GET['p_rid'];
     $status =0;
     $statusd =1;
     
@@ -12,7 +14,7 @@
     $resltf=mysqli_fetch_array($reslta);
     $urn1 = $resltf['chefs_id'];
 
-    mysqli_query($con,"UPDATE products set prdt_status='$status' where login_id = '$id'");
-    mysqli_query($con,"UPDATE products set prdt_status='$statusd' where login_id = '$rid'");
+    mysqli_query($con,"UPDATE products set prdt_status='$status' where prdt_id = '$prid' AND chefs_id = '$urn1'");
+    mysqli_query($con,"UPDATE products set prdt_status='$statusd' where prdt_id = '$prtid' AND chefs_id = '$urn1'");
     header("Location: myfoods.php");
 ?>

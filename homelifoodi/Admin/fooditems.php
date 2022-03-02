@@ -115,14 +115,14 @@
         </a>
       </li>
 
-      <li>
+      <!-- <li>
         <a href="profile.php">
         <i class='bx bxs-user-account' ></i>
           <span class="links_name">
             Profile
           </span>
         </a>
-      </li>
+      </li> -->
       <li class="login">
         <a href="logout.php ">
           <span class="links_name login_out">
@@ -201,7 +201,16 @@
                   <td><?php echo $reslts['prdt_description']; ?></td>
                   <td> Chef <?php echo $reslts['chef_name']; ?></td>
                   <td><?php echo $reslts['chefs_id']; ?></td>
-                  <td><?php echo $reslts['prdt_status']; ?></td>
+                  <td><?php 
+                  
+                  if($reslts['prdt_status']==0)
+                  {
+                    echo "Available";
+                  }
+                  else{
+                    echo "Not Available";
+                  }
+                  ?></td>
                   <!-- <td>
                     <a href='fooditems-update.php'>
                       <i class='bx bxs-edit-alt '  style='color:#089106'  ></i>

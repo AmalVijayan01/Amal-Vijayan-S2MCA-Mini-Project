@@ -1,6 +1,7 @@
 <?php
-include 'connect.php';
 session_start();
+include 'connect.php';
+
 if ($_SESSION['login_id'] == 0) {
     header("location:login.php");
 }
@@ -31,6 +32,15 @@ if ($rese = mysqli_fetch_array($resw)) {
     <link rel="stylesheet" href="css/main.css">
     <!-- box icon -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script>
+        window.location.hash = "no-back-button";
+
+window.location.hash = "Again-No-back-button"; 
+
+window.onhashchange = function(){
+    window.location.hash = "no-back-button";
+}
+    </script>
     <style>
         .user_wrapper {
             font-weight: bold;
@@ -161,6 +171,31 @@ if ($rese = mysqli_fetch_array($resw)) {
 
         }
 
+        .recentadded {
+            background-color: white;
+            border-color: black;
+            border: 1px;
+            width: 35%;
+            height: 380px;
+            margin: 0 25px 0 15px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px 5px;
+        }
+
+        .recentadded h4 {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .recentadded img {
+            width: 300px;
+            height: 250px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px 0 40px;
+            border-radius: 10px;
+        }
+
         .aggritms h4 {
             text-align: center;
             margin: 10px;
@@ -192,6 +227,23 @@ if ($rese = mysqli_fetch_array($resw)) {
             height: 80px;
             align-items: flex-end;
             justify-content: right;
+        }
+
+        .aggritms a {
+            text-decoration: none;
+            text-align: center;
+            margin: 15px 30px 20px 50px;
+            background-color: lawngreen;
+            padding: 20px 25px 20px 25px;
+
+        }
+
+        .aggritms1 a {
+            text-decoration: none;
+            text-align: center;
+            margin: 15px 30px 20px 50px;
+            background-color: lawngreen;
+            padding: 20px 25px 20px 25px;
         }
     </style>
 </head>
@@ -288,13 +340,34 @@ if ($rese = mysqli_fetch_array($resw)) {
                 </div>
                 <div class="recentadded">
                     <h4>Recent orders</h4>
+                    <?php
+                    $urn2 = $_SESSION['login_id'];
+                    $resqq = "SELECT * FROM orders,products WHERE orders.login_id = '$urn2' AND products.prdt_id = orders.prdt_id ORDER BY order_id DESC LIMIT 1;";
+                    $resww = mysqli_query($con, $resqq);
+                    if ($resee = mysqli_fetch_array($resww)) {
+                        $resee['del_name'];
+                        $resee['del_addr'];
+                        $resee['order_time'];
+                        $imageurl = "Chefs/food_images/" . $resee['prdt_image'];
+
+                    ?>
+                        <img src="<?php echo $imageurl ?>">
+                        <div class="dishdetails">
+                            <h5><?php echo $resee['del_name']; ?></h5>
+                            <h6><?php echo $resee['del_addr']; ?></h6>
+                            <p><?php echo $resee['order_time']; ?></p>
+                        </div>
+                    <?php } else {
+                        echo "no items";
+                    } ?>
                 </div>
                 <div class="aggregte">
                     <div class="aggritms">
-                        <h4>Total chefs</h4>
+                        <h4>Total Items</h4>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;">
                             <path d="M7.5 6.5C7.5 8.981 9.519 11 12 11s4.5-2.019 4.5-4.5S14.481 2 12 2 7.5 4.019 7.5 6.5zM20 21h1v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h17z"></path>
                         </svg>
+                        <a href="foods.php">View More</a>
                     </div>
                     <div class="aggritms1">
                         <h4>Total orders </h4>
@@ -303,7 +376,7 @@ if ($rese = mysqli_fetch_array($resw)) {
                             <circle cx="10.5" cy="19.5" r="1.5"></circle>
                             <circle cx="16.5" cy="19.5" r="1.5"></circle>
                         </svg>
-
+                        <a href="orders.php">View More</a>
                     </div>
                 </div>
             </div>

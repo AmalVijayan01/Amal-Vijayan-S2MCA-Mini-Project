@@ -374,7 +374,7 @@ if ($reslt = mysqli_fetch_array($resb)) {
                                         <input type="text" id="products" placeholder="Your Name" name="name" required autocomplete="off" class="inputs"><br><br>
 
                                         <label class="labels">phone</label>
-                                        <input type="text" id="products" placeholder="Mobile" name="phone" required autocomplete="off" class="inputs"><br><br>
+                                        <input type="number" id="products" placeholder="Mobile" name="phone" required autocomplete="off" class="inputs"><br><br>
 
                                         <label class="labels">Delivery Address</label>
                                         <textarea placeholder="Enter your address" cols="25" rows="2" name="address" required autocomplete="off" class="inputs"></textarea><br><br><br>
@@ -412,10 +412,11 @@ if ($reslt = mysqli_fetch_array($resb)) {
                             $rescart = "INSERT INTO orders(prdt_id, cart_id, login_id, chefs_id, del_name, del_phone, del_addr, payment_method) VALUES ('$prdt_id','$cid','$userid','$chefs_id','$del_name','$del_phone','$del_addr','$payment')";
                             $rescart1 = mysqli_query($con, $rescart);
                             if ($rescart1) {
-                                mysqli_query($con, "UPDATE cart SET cart_status ='1' WHERE login_id = '" . $_SESSION['login_id'] . "'");
-                            }
-                            echo "<script> location='cart.php' </script>";
+                                mysqli_query($con, "UPDATE cart SET cart_status ='1' WHERE cart_id = $cid");
+                                echo "<script> location='cart.php' </script>";
                         }
+                            echo "<script><alert> order placed sucessfully </alert></script>";
+                    }  
                         ?>
                     </table>
 

@@ -63,14 +63,20 @@
                 align-items: center;
                 justify-content: center;
                 width:500px;
-                height: 600px;;
-                margin: 70px 200px 50px 350px;
-                padding:30px 50px 30px 50px;
+                height: 700px;;
+                margin: 50px 200px 50px 350px;
+                padding:30px 50px 10px 50px;
                 min-width: 10%;
                 max-width: 100%;
-                border-radius:20px;
+                border-radius:0px;
                 box-shadow: 20px;
                 display:grid;
+            }
+            .profcard h3{
+                text-align: center;
+                justify-content: center;
+                margin:0px 0 5px 0;
+                font-weight: bold;
             }
             .f1{
                 display:flex;
@@ -89,6 +95,24 @@
             .f1 text{
                 display: inline-block;
                 margin: left 10px;
+            }
+            .protbl .sbtn{
+               margin:10px 0 0 0;
+               border-radius: 30px;
+               width:250px;
+               height:30px;
+               background-color: greenyellow;
+               box-shadow: none;
+               border: none;
+               box-shadow: 5px 5px;
+            }
+            .protbl input{
+                width:250px;
+                height:50px;
+                margin:5px 0 5px 0;
+                border-radius: 10px;
+                text-align: center;
+                box-shadow: 5px 5px;
             }
         </style>
     </head>

@@ -122,8 +122,8 @@ include 'connect.php';
                         <a href="#"> <i class="fas fa-user"></i> by user </a>
                         <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
                     </div>
-                    <h3>fresh and organic vegitables and fruits</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, expedita.</p>
+                    <h3>Healthy and tasty food items</h3>
+                    <p>Here you get fresh and healthy home made foods various talanted home chfs across the city</p>
                     <a href="#" class="btn">read more</a>
                 </div>
             </div>
@@ -135,8 +135,8 @@ include 'connect.php';
                         <a href="#"> <i class="fas fa-user"></i> by user </a>
                         <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
                     </div>
-                    <h3>fresh and organic vegitables and fruits</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, expedita.</p>
+                    <h3>Feels like your home food</h3>
+                    <p>Here you get fresh and healthy home made foods various talanted home chfs across the city</p>
                     <a href="#" class="btn">read more</a>
                 </div>
             </div>
@@ -148,8 +148,8 @@ include 'connect.php';
                         <a href="#"> <i class="fas fa-user"></i> by user </a>
                         <a href="#"> <i class="fas fa-calendar"></i> 1st may, 2021 </a>
                     </div>
-                    <h3>fresh and organic vegitables and fruits</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, expedita.</p>
+                    <h3>Tasty homemade foods</h3>
+                    <p>Here you get fresh and healthy home made foods various talanted home chfs across the city</p>
                     <a href="#" class="btn">read more</a>
                 </div>
             </div>
@@ -175,34 +175,8 @@ include 'connect.php';
                 </div>
 
                 <div class="swiper-slide box">
-                    <img src="image/pic-2.png" alt="">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
-                    <h3>john deo</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
-                    <img src="image/pic-3.png" alt="">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
-                    <h3>john deo</h3>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-
-                <div class="swiper-slide box">
                     <img src="image/pic-4.png" alt="">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime ad tempore quasi tenetur.</p>
+                    <p>Enjoying foods from Homeli foodi.One of the best place where you can find pure homeli foods.Great quality and quck delivery</p>
                     <h3>john deo</h3>
                     <div class="stars">
                         <i class="fas fa-star"></i>
